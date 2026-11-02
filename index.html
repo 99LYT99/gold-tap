@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Золотая Лихорадка</title>
+    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-particles" id="bgParticles"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>💰 Золотая Лихорадка</h1>
+            <div class="stats">
+                <div class="score">🪙 <span id="score">0</span></div>
+                <div class="income">💎 <span id="income">0</span>/сек</div>
+            </div>
+        </div>
+
+        <div id="comboIndicator" class="combo-indicator hidden">
+            <div class="combo-text">🔥 КОМБО x<span id="comboMultiplier">1</span></div>
+            <div class="combo-bar">
+                <div id="comboBarFill" class="combo-bar-fill"></div>
+            </div>
+        </div>
+
+        <div id="tapBtn" class="tap-btn">
+            <div class="chest-glow"></div>
+            <div class="chest">🏴‍☠️</div>
+            <div class="chest-ring"></div>
+        </div>
+
+        <div class="boosters">
+            <div class="booster" id="critBooster">
+                <div class="booster-icon">💥</div>
+                <div class="booster-text">Крит: <span id="critChance">10</span>%</div>
+            </div>
+            <div class="booster" id="comboBooster">
+                <div class="booster-icon">⚡</div>
+                <div class="booster-text">Комбо: <span id="comboDuration">2</span>с</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="upgradeBtn" class="action-btn upgrade-btn">
+                🛠 Прокачка
+            </button>
+            
+            <button id="adBtn" class="action-btn ad-btn">
+                🎬 Реклама = +50% золота
+            </button>
+
+            <button id="leaderboardBtn" class="action-btn leaderboard-btn">
+                🏆 Топ игроков
+            </button>
+        </div>
+    </div>
+
+    <div id="upgradeModal" class="modal hidden">
+        <div class="modal-content upgrade-modal">
+            <div class="modal-header">
+                <h2>🛠 Прокачка</h2>
+                <button class="close-btn" id="closeUpgradeModal">✖</button>
+            </div>
+            <div class="upgrade-tabs">
+                <button class="tab-btn active" data-tab="basic">⚒️ Базовые</button>
+                <button class="tab-btn" data-tab="crit">💥 Криты</button>
+                <button class="tab-btn" data-tab="combo">⚡ Комбо</button>
+                <button class="tab-btn" data-tab="passive">💎 Пассив</button>
+            </div>
+            <div id="upgradeList" class="upgrade-list"></div>
+        </div>
+    </div>
+
+    <div id="leaderboardModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🏆 Топ игроков</h2>
+                <button class="close-btn" id="closeModal">✖</button>
+            </div>
+            <div id="leaderboardList" class="leaderboard-list">
+                <div class="loading">Загрузка...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
